@@ -2,6 +2,13 @@
 name = "emojify"
 version = "0.1.0"
 edition = "2024"
+description = "emojify text to clipboard"
+licence = "MIT"
+authors = ["Attila Repka"]
+
+[package.metadata.deb]
+revision = ""
+
 
 [dependencies]
 arboard = "3.4.1"

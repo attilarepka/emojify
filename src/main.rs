@@ -5,7 +5,7 @@ use clap::Parser;
 use std::io;
 
 #[derive(Parser, Debug)]
-#[command(author, version, about = "csv-compare", long_about = None)]
+#[command(author, version, about = None, long_about = None)]
 struct Args {
     /// Space width of output
     #[arg(long)]
