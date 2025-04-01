@@ -8,6 +8,8 @@ emojify is a cli tool that converts text to emojified text
 
 - converts input text to emojified text
 - adjustable space width
+- adjustable character spacing
+- optional background character
 
 ## Installation
 
@@ -21,8 +23,8 @@ then emojify can be installed using a binary `.deb` file provided in each
 [emojify release](https://github.com/attilarepka/emojify/releases).
 
 ```
-$ curl -LO https://github.com/attilarepka/emojify/releases/download/0.1.0/emojify_0.1.0_amd64.deb
-$ sudo dpkg -i emojify_0.1.0_amd64.deb
+$ curl -LO https://github.com/attilarepka/emojify/releases/download/0.1.1/emojify_0.1.1_amd64.deb
+$ sudo dpkg -i emojify_0.1.1_amd64.deb
 ```
 
 ### Building
@@ -42,12 +44,16 @@ $ cargo build --release
 emojify provides a command-line interface with the following options:
 
 ```shell
-Usage: emojify --space-width <SPACE_WIDTH>
+Usage: emojify [OPTIONS] --space-width <SPACE_WIDTH>
 
 Options:
-      --space-width <SPACE_WIDTH>  Space width of output
-  -h, --help                       Print help
-  -V, --version                    Print version
+  -i, --input <INPUT>                          Input text to emojify
+  -s, --space-width <SPACE_WIDTH>              Space width for emoji matrix
+  -b, --background-char <BACKGROUND_CHAR>      Background character
+  -c, --character-spacing <CHARACTER_SPACING>  Character spacing
+      --print-output                           Print generated output
+  -h, --help                                   Print help
+  -V, --version                                Print version
 ```
 
 ## Contributing
