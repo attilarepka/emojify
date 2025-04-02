@@ -23,8 +23,8 @@ then emojify can be installed using a binary `.deb` file provided in each
 [emojify release](https://github.com/attilarepka/emojify/releases).
 
 ```
-$ curl -LO https://github.com/attilarepka/emojify/releases/download/0.1.1/emojify_0.1.1_amd64.deb
-$ sudo dpkg -i emojify_0.1.1_amd64.deb
+$ curl -LO https://github.com/attilarepka/emojify/releases/download/0.1.2/emojify_0.1.2_amd64.deb
+$ sudo dpkg -i emojify_0.1.2_amd64.deb
 ```
 
 ### Building
