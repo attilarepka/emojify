@@ -1,6 +1,6 @@
 [package]
 name = "emojify"
-version = "0.1.2"
+version = "0.1.3"
 edition = "2024"
 description = "emojify text to clipboard"
 licence = "MIT"
