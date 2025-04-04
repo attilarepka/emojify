@@ -23,8 +23,8 @@ then emojify can be installed using a binary `.deb` file provided in each
 [emojify release](https://github.com/attilarepka/emojify/releases).
 
 ```
-$ curl -LO https://github.com/attilarepka/emojify/releases/download/0.1.2/emojify_0.1.2_amd64.deb
-$ sudo dpkg -i emojify_0.1.2_amd64.deb
+$ curl -LO https://github.com/attilarepka/emojify/releases/download/0.1.3/emojify_0.1.3_amd64.deb
+$ sudo dpkg -i emojify_0.1.3_amd64.deb
 ```
 
 ### Building
@@ -47,13 +47,22 @@ emojify provides a command-line interface with the following options:
 Usage: emojify [OPTIONS] --space-width <SPACE_WIDTH>
 
 Options:
-  -i, --input <INPUT>                          Input text to emojify
-  -s, --space-width <SPACE_WIDTH>              Space width for emoji matrix
-  -b, --background-char <BACKGROUND_CHAR>      Background character
-  -c, --character-spacing <CHARACTER_SPACING>  Character spacing
-      --print-output                           Print generated output
-  -h, --help                                   Print help
-  -V, --version                                Print version
+  -i, --input <INPUT>
+          Text to convert into an emoji representation
+  -s, --space-width <SPACE_WIDTH>
+          Width of spaces between emoji characters
+  -f, --foreground-emoji <FOREGROUND_EMOJI>
+          Emoji used for the foreground (text)
+  -b, --background-emoji <BACKGROUND_EMOJI>
+          Emoji used for the background (empty spaces)
+  -c, --character-spacing <CHARACTER_SPACING>
+          Extra spacing between characters (in units of space_width)
+  -p, --print-output
+          Print the generated emoji output to the console
+  -h, --help
+          Print help
+  -V, --version
+          Print version
 ```
 
 ## Contributing

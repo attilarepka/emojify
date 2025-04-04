@@ -7,20 +7,28 @@ use std::io;
 #[derive(Parser, Debug)]
 #[command(author, version, about = None, long_about = None)]
 struct Args {
-    /// Input text to emojify
+    /// Text to convert into an emoji representation
     #[arg(long, short)]
     input: Option<String>,
-    /// Space width for emoji matrix
+
+    /// Width of spaces between emoji characters
     #[arg(long, short)]
     space_width: usize,
-    /// Background character
+
+    /// Emoji used for the foreground (text)
     #[arg(long, short)]
-    background_char: Option<char>,
-    /// Character spacing
+    foreground_emoji: Option<char>,
+
+    /// Emoji used for the background (empty spaces)
+    #[arg(long, short)]
+    background_emoji: Option<char>,
+
+    /// Extra spacing between characters (in units of space_width)
     #[arg(long, short)]
     character_spacing: Option<usize>,
-    /// Print generated output
-    #[arg(long, action = ArgAction::SetTrue)]
+
+    /// Print the generated emoji output to the console
+    #[arg(long, short, action = ArgAction::SetTrue)]
     print_output: bool,
 }
 
@@ -34,17 +42,17 @@ fn main() {
         input = args_input;
         println!("Text to emojify: {}", input.trim());
     } else {
-        println!("Text to emojify:");
+        println!("Enter text to emojify:");
         io::stdin().read_line(&mut input).unwrap();
     }
     let input = input.trim();
 
-    println!("Pasting emoji from clipboard");
-    let clipboard_text = clipboard.get_text().unwrap();
-
-    let emoji = clipboard_text.chars().next().unwrap_or('@').to_string();
+    let emoji = args
+        .foreground_emoji
+        .unwrap_or(clipboard.get_text().unwrap().chars().next().unwrap())
+        .to_string();
     let background = args
-        .background_char
+        .background_emoji
         .unwrap_or(' ')
         .to_string()
         .repeat(args.space_width);
@@ -78,7 +86,7 @@ fn main() {
     }
 
     let spacing = args
-        .background_char
+        .background_emoji
         .unwrap_or(' ')
         .to_string()
         .repeat(args.character_spacing.unwrap_or(args.space_width));
