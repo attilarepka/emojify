@@ -49,7 +49,7 @@ fn main() {
 
     let emoji = args
         .foreground_emoji
-        .unwrap_or(clipboard.get_text().unwrap().chars().next().unwrap())
+        .unwrap_or_else(|| clipboard.get_text().unwrap().chars().next().unwrap())
         .to_string();
     let background = args
         .background_emoji
