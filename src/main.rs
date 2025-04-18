@@ -23,7 +23,7 @@ struct Args {
     #[arg(long, short)]
     background_emoji: Option<char>,
 
-    /// Extra spacing between characters (in units of space_width)
+    /// Extra spacing between characters (in units of --space-width)
     #[arg(long, short)]
     character_spacing: Option<usize>,
 
@@ -107,6 +107,6 @@ fn main() {
     println!("Copied generated emoji to clipboard");
 
     if args.print_output {
-        println!("{}", result);
+        println!("{result}");
     }
 }

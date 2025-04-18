@@ -1,5 +1,6 @@
 use std::collections::HashMap;
 
+#[allow(clippy::too_many_lines)]
 pub fn map() -> HashMap<&'static str, Vec<Vec<usize>>> {
     HashMap::from([
         (
