@@ -57,11 +57,11 @@ fn main() {
         .to_string()
         .repeat(args.space_width);
 
-    let mut matrices: Vec<Vec<Vec<String>>> = Vec::new();
+    let mut matrices: Vec<Vec<String>> = Vec::new();
 
     for ch in input.chars() {
         if let Some(matrix) = characters::map().get(&ch.to_ascii_uppercase().to_string().as_str()) {
-            let modified_matrix: Vec<Vec<String>> = matrix
+            let modified_matrix: Vec<String> = matrix
                 .iter()
                 .map(|row| {
                     row.iter()
@@ -72,11 +72,17 @@ fn main() {
                                 background.clone()
                             }
                         })
-                        .collect()
+                        .collect::<String>()
                 })
                 .collect();
 
-            matrices.push(modified_matrix);
+            if matrices.is_empty() {
+                matrices = modified_matrix.into_iter().map(|r| vec![r]).collect();
+            } else {
+                for (i, row) in modified_matrix.into_iter().enumerate() {
+                    matrices[i].push(row);
+                }
+            }
         }
     }
 
@@ -91,14 +97,9 @@ fn main() {
         .to_string()
         .repeat(args.character_spacing.unwrap_or(args.space_width));
 
-    let output_rows: Vec<String> = (0..matrices[0].len())
-        .map(|i| {
-            matrices
-                .iter()
-                .map(|m| m[i].concat())
-                .collect::<Vec<_>>()
-                .join(&spacing)
-        })
+    let output_rows: Vec<String> = matrices
+        .into_iter()
+        .map(|rows| rows.join(&spacing))
         .collect();
 
     let result = output_rows.join("\n");
