@@ -12,4 +12,4 @@ revision = ""
 
 [dependencies]
 arboard = "3.6.0"
-clap = { version = "4.5.40", features = ["derive"] }
+clap = { version = "4.5.41", features = ["derive"] }
